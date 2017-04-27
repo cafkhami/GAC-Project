@@ -2,11 +2,12 @@
 
 #set the wd
 setwd("~")
-setwd("~/Coursera/Data Science/GAC/Project/data/UCI HAR Dataset")
+setwd("~/Coursera/Data Science/GAC/GAC-Project/data/UCI HAR Dataset")
 basedir <- getwd()
 
-#load dplyr
+#load dplyr and tidyr
 library(dplyr)
+library(tidyr)
 
 #read in the files
 act.labels <- read.table("activity_labels.txt")
@@ -60,5 +61,5 @@ tidy <- by_subj_act %>%
   gather(Variable, Value, 3:20)
 
 #write to a file
-setwd("~/Coursera/Data Science/GAC/Project")
+setwd("~/Coursera/Data Science/GAC/GAC-Project")
 write.table(tidy,file = "Tidy.txt", row.names = FALSE)
